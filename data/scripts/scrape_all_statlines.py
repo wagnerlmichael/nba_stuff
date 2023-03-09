@@ -1,12 +1,5 @@
 """
-source venv/bin/activate
-pip install -r requirements.txt
-deactivate
-
-https://www.playingnumbers.com/2019/12/how-to-get-nba-data-using-the-nba_api-python-module-beginner/
-
-hash-r
-ipython
+This script creates the all_games_players.csv in the /data/datasets/ path
 """
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import playergamelog
