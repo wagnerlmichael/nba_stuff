@@ -24,7 +24,6 @@ num_x_pts_scored <- function (df, pts, earliest_season) {
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 80,
                                      hjust = 1))
-  
 }
 
 num_x_pts_scored(df = df, 
