@@ -7,6 +7,7 @@ from nba_api.stats.library.parameters import SeasonAll
 import pandas as pd
 import time
 import subprocess as sp
+import fastparquet
 
 base_path = sp.getoutput('git rev-parse --show-toplevel')
 
@@ -31,3 +32,4 @@ for count, i in enumerate(list_all_players):
 
 # write data to csv
 # df_result.to_csv(base_path + '/data/datasets/all_games_players_all_stats.csv')
+df_result.to_parquet(base_path + '/data/datasets/all_games_players_all_stats.parquet')
