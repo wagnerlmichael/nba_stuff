@@ -1,6 +1,7 @@
 library(shiny)
 library(tidyverse)
 library(shinyWidgets)
+library(rsconnect)
 
 
 # Rtsudio workaround to make sure path isn't hard-coded
@@ -9,6 +10,7 @@ base_path <- system('git rev-parse --show-toplevel', intern = T)
 
 # read in massive data
 df <- 
+  #read.csv('data/all_games_players.csv') %>% 
   read.csv(paste0(base_path, '/data/datasets/all_games_players.csv')) %>% 
   mutate(season = substr(SEASON_ID, 2, 5)) %>% 
   select(season, PTS)
