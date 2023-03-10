@@ -10,6 +10,7 @@ base_path <- system('git rev-parse --show-toplevel', intern = T)
 
 # read in massive data
 df <- 
+  # used for deployment
   #read.csv('data/all_games_players.csv') %>% 
   read.csv(paste0(base_path, '/data/datasets/all_games_players.csv')) %>% 
   mutate(season = substr(SEASON_ID, 2, 5)) %>% 

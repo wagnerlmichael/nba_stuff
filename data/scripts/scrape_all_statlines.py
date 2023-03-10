@@ -6,6 +6,9 @@ from nba_api.stats.endpoints import playergamelog
 from nba_api.stats.library.parameters import SeasonAll
 import pandas as pd
 import time
+import subprocess as sp
+
+base_path = sp.getoutput('git rev-parse --show-toplevel')
 
 # create list of all NBA players in history to iterate through
 player_dict = players.get_players()
@@ -17,13 +20,14 @@ df_result = pd.DataFrame()
 # fill empty df with every statline ever of every player
 for count, i in enumerate(list_all_players):
     # delay in the loop so the API doesn't time out
-    time.sleep(2)
+    time.sleep(2.5)
     print(count, i)
     df_result = pd.concat([df_result, (playergamelog
                                         .PlayerGameLog(player_id=str(i),
                                                     season=SeasonAll.all)
-                                        .get_data_frames()[0][['SEASON_ID', 'Player_ID', 'PTS', 'AST', 'MIN']]
+                                        .get_data_frames()[0]
     )])
 
+
 # write data to csv
-#df_result.to_csv('/Users/michaelwagner/Dropbox/projects/nba/nba_stuff/all_games_players.csv')
+# df_result.to_csv(base_path + '/data/datasets/all_games_players_all_stats.csv')

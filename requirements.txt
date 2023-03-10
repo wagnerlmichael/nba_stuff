@@ -1,3 +1,4 @@
 iPython
 pandas
 nba_api
+fastparquet
