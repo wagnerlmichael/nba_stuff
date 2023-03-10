@@ -16,10 +16,11 @@ df <-
   mutate(season = substr(SEASON_ID, 2, 5)) %>% 
   select(season, PTS)
 
+
 # ui shiny section
 ui <- fluidPage(
   titlePanel("Hobby Data Dashboard"),
-  
+  fluidRow(
   sidebarLayout(
     sidebarPanel(
       p('This graph displays how many times per season 
@@ -39,12 +40,108 @@ ui <- fluidPage(
                   value = 1980,
                   ticks = F,
                   sep = '')),
-    # Output for the graph
     mainPanel(
-      plotOutput(outputId = "graph"))
-  )
+      plotOutput(outputId = "graph")
+      )
+    )
+  ),
+  # next section of page
+  fluidRow(h2('Second Tool'),
+           sidebarLayout(
+             sidebarPanel(width = 6,
+               p('Description'),
+              fluidRow(
+                column(width = 3,
+                       numericInput("num", 
+                                    label = h4("Points"),
+                                    value = 0,
+                                    width = '100%')
+                       ),
+                 column(width = 3,
+                        numericInput("num",
+                                    label = h4("Rebounds"),
+                                    value = 0,
+                                    width = '100%')
+                        ),
+                        
+                        column(width = 3,
+                               numericInput("num", 
+                                            label = h4("Assists"),
+                                            value = 0,
+                                            width = '100%')
+                        ),
+                        column(width = 3,
+                               numericInput("num",
+                                            label = h4("Steals"),
+                                            value = 0,
+                                            width = '100%')
+                 )
+                 ),
+              fluidRow(
+                column(width = 3,
+                       numericInput("num", 
+                                    label = h4("Blocks"),
+                                    value = 0,
+                                    width = '100%')
+                ),
+                column(width = 3,
+                       numericInput("num",
+                                    label = h4("Turnovers"),
+                                    value = 0,
+                                    width = '100%')
+                ),
+                
+                column(width = 3,
+                       numericInput("num", 
+                                    label = h4("FG Attempts"),
+                                    value = 0,
+                                    width = '100%')
+                ),
+                column(width = 3,
+                       numericInput("num",
+                                    label = h4("FG Makes"),
+                                    value = 0,
+                                    width = '100%')
+                )
+              ),
+              fluidRow(
+                column(width = 3,
+                       numericInput("num", 
+                                    label = h4("FG %"),
+                                    value = 0,
+                                    width = '100%')
+                ),
+                column(width = 3,
+                       numericInput("num",
+                                    label = h4("3PT Attempts"),
+                                    value = 0,
+                                    width = '100%')
+                ),
+                
+                column(width = 3,
+                       numericInput("num", 
+                                    label = h4("3PT Makes"),
+                                    value = 0,
+                                    width = '100%')
+                ),
+                column(width = 3,
+                       numericInput("num",
+                                    label = h4("3PT %"),
+                                    value = 0,
+                                    width = '100%')
+                )
+              )
+               
+               # 
+               
+               ),
+             
+           mainPanel())
+           )
+  
 )
 
+# ui server section
 server <- function(input, output, session) {
 
   
