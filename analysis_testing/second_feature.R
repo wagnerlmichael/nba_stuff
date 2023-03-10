@@ -24,6 +24,6 @@ statline_collector <- function () {
 df %>% 
   filter(PTS >= 10,
          AST >= 0) %>% 
-  group_by(Player_ID) %>% 
+  group_by(name) %>% 
   summarise(count = n()) %>% 
   arrange(desc(count))
