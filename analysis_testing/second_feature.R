@@ -52,12 +52,20 @@ statline_collector <- function (points,
     head(10)
 }
 
-statline_collector(points = 20,
-                   assists = 10,
-                   rebounds = 10,
-                   fg_attempts = 10)
+statline_collector(points = 0,
+                   assists = 0,
+                   rebounds = 0,
+                   fg_attempts = 0)
 
+df %>% 
+  filter(name == 'Eddie Johnson') %>% 
+  distinct(player_id)
 
+# Replace by Checking Multiple Conditions
+df$id[df$id == 55 & df$gender == 'm'] <- "60"
+
+df
+df$name[df$name == 'Eddie Johnson' & df$player_id == '77144'] <- 'Eddie Johnson (2)'
 
 
 
