@@ -8,7 +8,7 @@ base_path <- system('git rev-parse --show-toplevel', intern = T)
 df <-
   read_parquet(paste0(
     base_path, 
-    '/data/datasets/all_games_players_all_stats.parquet'),
+    '/data/datasets/all_games_players_all_slimmer.parquet'),
    as_tibble = TRUE) %>% 
   rename_all(tolower)
 

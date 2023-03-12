@@ -5,10 +5,9 @@ account: datawags
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8530877
-bundleId: 6943829
+bundleId: 6943875
 url: https://datawags.shinyapps.io/yoooo/
-when: 1678492372.17755
-lastSyncTime: 1678492372.17756
+when: 1678493712.4532
+lastSyncTime: 1678493712.45321
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: data/all_games_players.csv

@@ -19,7 +19,7 @@ library(arrow)
 #   mutate(season = substr(season_id, 2, 5))
 
 df <-
-  read_parquet('data/all_games_players_all_stats.parquet',
+  read_parquet('data/all_games_players_all_slimmer.parquet',
     as_tibble = TRUE) %>% 
   rename_all(tolower) %>% 
   mutate(season = substr(season_id, 2, 5))
@@ -162,7 +162,6 @@ server <- function(input, output, session) {
     
     df %>% 
       # temporary fix to the NA problems
-      select(-wl) %>% 
       replace(is.na(.), 0) %>% 
       
       filter(pts >= input$points,
