@@ -33,3 +33,26 @@ for count, i in enumerate(list_all_players):
 # write data to csv
 # df_result.to_csv(base_path + '/data/datasets/all_games_players_all_stats.csv')
 #df_result.to_parquet(base_path + '/data/datasets/all_games_players_all_stats.parquet')
+
+"""
+# TRY THIS AT SOME POINT
+
+# fill empty df with every statline ever of every player
+for count, i in enumerate(list_all_players):
+    while True:
+        try:
+            # delay in the loop so the API doesn't time out
+            time.sleep(2.5)
+            print(count, i)
+            df_result = pd.concat([df_result, (playergamelog
+                                                .PlayerGameLog(player_id=str(i),
+                                                            season=SeasonAll.all)
+                                                .get_data_frames()[0]
+            )])
+            break  # if the request was successful, move on to the next player
+        except requests.exceptions.Timeout:
+            # if the request timed out, print a message and wait for 2 minutes before trying again
+            print(f"Request timed out for player {i}. Waiting for 2 minutes before trying again.")
+            time.sleep(120)
+
+"""
