@@ -12,6 +12,15 @@ import fastparquet
 import requests
 
 def scrape_all_games(sleep_time, error_sleep_time):
+    """
+    Inputs: 
+        - sleep_time: delay between query on each player's games
+        - error_sleep_time: delay between talking to the API again after a ReadTimeout error
+
+    Outputs:
+        A parquet of stats/information of every game for every player in the NBA
+        saves to the repo in /data/datasets/
+    """
     base_path = sp.getoutput('git rev-parse --show-toplevel')
 
     # create list of all NBA players in history to iterate through
