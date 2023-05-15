@@ -176,7 +176,7 @@ server <- function(input, output, session) {
              tov >= input$turnovers,
              fga >= input$fg_attempts,
              fgm >= input$fg_makes,
-             fg_pct >= input$fg3_percent,
+             fg_pct >= input$fg_percent,
              fg3a >= input$fg3_attempts,
              fg3m >= input$fg3_makes,
              fg3_pct >= input$fg3_percent) %>% 
